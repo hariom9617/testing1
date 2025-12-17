@@ -1,7 +1,9 @@
 export function apiKeyAuth(req, res, next) {
-  const clientKey = req.headers["x-api-key"];
+  const apiKey =
+    req.headers["x-api-key"] ||
+    req.query.api_key;
 
-  if (!clientKey || clientKey !== process.env.API_KEY) {
+  if (!apiKey || apiKey !== process.env.API_KEY) {
     return res.status(401).json({ error: "Invalid API key" });
   }
 
