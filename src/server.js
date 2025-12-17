@@ -43,7 +43,7 @@ app.get("/access", apiKeyAuth, (req, res) => {
     });
 
     const cookieOptions = {
-      domain: .${process.env.CLOUDFRONT_DISTRIBUTION_DOMAIN}, // ⭐ FIX
+      domain: `.${process.env.CLOUDFRONT_DISTRIBUTION_DOMAIN}`,
       path: "/",
       httpOnly: true,
       secure: true,
@@ -57,7 +57,7 @@ app.get("/access", apiKeyAuth, (req, res) => {
 
     // ✅ AUTO REDIRECT (BEST UX)
     return res.redirect(
-      https://${process.env.CLOUDFRONT_DISTRIBUTION_DOMAIN}/code.html
+      `https://${process.env.CLOUDFRONT_DISTRIBUTION_DOMAIN}/code.html`
     );
 
   } catch (error) {
@@ -72,5 +72,5 @@ app.get("/access", apiKeyAuth, (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(✅ Server running on port ${PORT});
+ console.log(`✅ Server running on port ${PORT}`);
 });
