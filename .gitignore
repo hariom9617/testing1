@@ -5,8 +5,7 @@
 node_modules/
 
 # certificates & keys
-certs/
-keys/
+
 
 # OS / editor junk
 .DS_Store
